@@ -31,32 +31,32 @@ def registro_cliente(request):
                       {'form': form})
 
 def listar_clientes(request):
-    # creamos una colección la cual carga TODOS los registos
     clientes = Cliente.objects.all()
-    # renderizamos la colección en el template
-    return render(request,
-        "app/listar.html", {'clientes': clientes})
+    return render(request, "app/listar.html", {'clientes': clientes})
         
 # EDITAR CLIENTE
-# def editar_cliente(request, rut):
-#     instancia= Cliente.objects.get(id=rut)
-#     form=  ClienteForm(instance=instancia)
-#     if request.method=="POST":
-#         form= ClienteForm(request.POST, instance=instancia)
-#         if form.is_valid():
-#             instancia= form.save(commit=False)
-#             instancia.save()
-#     return render(request, "app/editar.html",{'form':form})
+def editar_cliente(request, rut):
+    instancia= Cliente.objects.get(rut=rut)
+    form=  ClienteForm(instance=instancia)
+    if request.method=="POST":
+        form= ClienteForm(request.POST, instance=instancia)
+        if form.is_valid():
+            instancia= form.save(commit=False)
+            instancia.save()
+    return render(request, "app/editar.html",{'form':form})
+    
+
+# BORRAR CLIENTE
+def borrar_cliente(request, rut):
+    instancia= Cliente.objects.get(rut=rut)
+    instancia.delete()
+    return redirect('http://localhost:8000/listarfull')
 
 
-
-def listar_carreras(request):
-    # creamos una colección la cual carga TODOS los registos
-    carreras = Carrera.objects.all()
-    # renderizamos la colección en el template
-    return render(request,
-        "app/listar_carreras.html", {'carreras': carreras})
-
+# CRUD COMPLETO 
+def listar_cliente_full(request):
+    clientes = Cliente.objects.all()
+    return render(request, "app/listar_full.html", {'clientes': clientes})
 
 
 

@@ -2,8 +2,9 @@
 {% load staticfiles %}
 
 {% block title %}
-Lista de Clientes
+Listar Clientes Full
 {% endblock %}
+
 
 {% block content %}
     <table class="table">
@@ -15,6 +16,8 @@ Lista de Clientes
                 <th>EDAD</th>
                 <th>EMAIL</th>
                 <th>REGION</th>
+                <th>EDITAR</th>
+                <th>BORRAR</th>
             </tr>
         </thead>
         <tbody>
@@ -26,9 +29,10 @@ Lista de Clientes
                 <td>{{c.edad}}</td>
                 <td>{{c.email}}</td>
                 <td>{{c.region}}</td>
+                <td><a href="/editar_cliente/{{ c.rut }}" class="btn btn-warning">EDITAR</a></td>
+                <td><a href="/borrar_cliente/{{ c.rut }}" onclick="return confirm('Se eliminara un cliente Seguro que desea continuar?')" class="btn btn-danger " class="alert alert-danger" role="alert">Eliminar</a></td>             
             </tr>
             {% endfor %}
         </tbody>
     </table>
 {% endblock %}
-
