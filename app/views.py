@@ -17,6 +17,7 @@ def index(request):
 
 
 # ====== FUNCIONES ======
+
 # REGISTRO DE CLIENTE
 def registro_cliente(request):
     if request.method == "POST":

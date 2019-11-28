@@ -17,12 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', include('app.urls')),
-    # path('saludo', include('app.urls')),
-    # path('addCarrera', include('app.urls')),
-    # path('agregarCarrera', include('app.urls')),
-    # path('editar_carrera/<int:carrera_id>', include('app.urls')),
     path('listarfull', include('app.urls')),
     path('borrar_cliente/<str:rut>', include('app.urls')),
     path('editar_cliente/<str:rut>', include('app.urls')),
