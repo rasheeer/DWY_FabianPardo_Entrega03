@@ -6,24 +6,12 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Cliente
 from .forms import ClienteForm
 
-# EDITAR CLIENTE
-def editar_cliente(request, rut):
-    instancia= Cliente.objects.get(rut=rut)
-    form=  ClienteForm(instance=instancia)
-    if request.method=="POST":
-        form= ClienteForm(request.POST, instance=instancia)
-        if form.is_valid():
-            instancia= form.save(commit=False)
-            instancia.save()
-    return render(request, "app/editar.html",{'form':form})
-
-
 
 # ============== API REST ===============
 from .serializers import ClienteSerializer
 from rest_framework import generics
 
-class API_objets_details(generics.ListCreateAPIView):
+class API_objets(generics.ListCreateAPIView):
     queryset = Cliente.objects.all()
     serializers_class = ClienteSerializer
 
@@ -69,6 +57,18 @@ def borrar_cliente(request, rut):
     instancia= Cliente.objects.get(rut=rut)
     instancia.delete()
     return redirect('http://localhost:8000/listarfull')
+
+# EDITAR CLIENTE
+def editar_cliente(request, rut):
+    instancia= Cliente.objects.get(rut=rut)
+    form=  ClienteForm(instance=instancia)
+    if request.method=="POST":
+        form= ClienteForm(request.POST, instance=instancia)
+        if form.is_valid():
+            instancia= form.save(commit=False)
+            instancia.save()
+    return render(request, "app/editar.html",{'form':form})
+
 
 # LISTAR CLIENTES Y PERMITE EDITAR Y BORRAR
 def listar_cliente_full(request):
