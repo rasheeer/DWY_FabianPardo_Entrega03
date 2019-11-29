@@ -25,3 +25,10 @@ class Servicio(models.Model):
     def __str__(self):
         return self.tipo_servicio
 
+class Abogado(models.Model):
+    rut = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    sexo = models.CharField(max_length=50)
+    edad = models.IntegerField()
+    especialidad = models.CharField(max_length=50)
