@@ -13,7 +13,7 @@ from rest_framework import generics
 
 class API_objets(generics.ListCreateAPIView):
     queryset = Cliente.objects.all()
-    serializer_class = ClienteSerializer
+    serializers_class = ClienteSerializer
 
 class API_objets_details(generics.RetrieveUpdateDestroyAPIView):
     queryset = Cliente.objects.all()
@@ -77,7 +77,6 @@ def listar_cliente_full(request):
 
 
 # ============== FILTRO ===============
-
 
 
 # ======== TERMINO DE FILTRO ==========

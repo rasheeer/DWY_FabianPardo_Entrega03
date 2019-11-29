@@ -32,3 +32,9 @@ class Abogado(models.Model):
     sexo = models.CharField(max_length=50)
     edad = models.IntegerField()
     especialidad = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.sexo
+
+    def __str__(self):
+        return self.especialidad
