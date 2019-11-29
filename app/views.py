@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-# ============== para nuestos modelos ==============
+# ============== PARA LOS MODELOS ==============
 from .models import Cliente
 from .forms import ClienteForm
 
@@ -13,11 +13,11 @@ from rest_framework import generics
 
 class API_objets(generics.ListCreateAPIView):
     queryset = Cliente.objects.all()
-    serializers_class = ClienteSerializer
+    serializer_class = ClienteSerializer
 
 class API_objets_details(generics.RetrieveUpdateDestroyAPIView):
     queryset = Cliente.objects.all()
-    serializers_class = ClienteSerializer
+    serializer_class = ClienteSerializer
 # ========== TERMINO API REST ===========
 
 
@@ -69,7 +69,6 @@ def editar_cliente(request, rut):
             instancia.save()
     return render(request, "app/editar.html",{'form':form})
 
-
 # LISTAR CLIENTES Y PERMITE EDITAR Y BORRAR
 def listar_cliente_full(request):
     clientes = Cliente.objects.all()
@@ -77,5 +76,10 @@ def listar_cliente_full(request):
 # ============== TERMINO DE FUNCIONES ===============
 
 
+# ============== FILTRO ===============
+
+
+
+# ======== TERMINO DE FILTRO ==========
 
 
