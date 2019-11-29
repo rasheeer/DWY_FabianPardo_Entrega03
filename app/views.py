@@ -13,7 +13,7 @@ from rest_framework import generics
 
 class API_objets(generics.ListCreateAPIView):
     queryset = Cliente.objects.all()
-    serializers_class = ClienteSerializer
+    serializer_class = ClienteSerializer
 
 class API_objets_details(generics.RetrieveUpdateDestroyAPIView):
     queryset = Cliente.objects.all()
