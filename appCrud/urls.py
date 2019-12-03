@@ -25,4 +25,5 @@ urlpatterns = [
     path('registrocliente', include('app.urls')),
     path('abogados', include('app.urls')),
     path('index', include('app.urls')),
+    path('filtros', include('app.urls')),
 ]

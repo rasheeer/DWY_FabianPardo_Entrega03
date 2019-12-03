@@ -18,4 +18,5 @@ urlpatterns += [
     path('abogados',views.abogados),
     path('index',views.index),
     path('registrocliente',views.registro_cliente),
+    path('filtros',views.filtros),
 ]

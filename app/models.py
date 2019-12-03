@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Cliente(models.Model):
-    # user = models.OneToOneField(User, on_delete=models.CASCADE)
     rut = models.CharField(max_length=50)
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
@@ -32,9 +31,3 @@ class Abogado(models.Model):
     sexo = models.CharField(max_length=50)
     edad = models.IntegerField()
     especialidad = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.sexo
-
-    def __str__(self):
-        return self.especialidad

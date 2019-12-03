@@ -1,0 +1,93 @@
+{% extends './base/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+Lista de Abogados
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>RUT</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>SEXO</th>
+                <th>EDAD</th>
+                <th>ESPECIALIDAD</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in abogados %}
+            <tr>
+                <td>{{c.rut}}</td>
+                <td>{{c.nombre}}</td>
+                <td>{{c.apellido}}</td>
+                <td>{{c.sexo}}</td>
+                <td>{{c.edad}}</td>
+                <td>{{c.especialidad}}</td>
+            </tr>
+            {% endfor %}
+
+            <form action="/filtros" method="POST">
+                Especialidad: 
+                <input type="text" name="especialidad" value="{{especialidad}}">
+                <input type="submit" value="Filtrar">
+                {% csrf_token %}
+            </form>
+        </tbody>
+    </table>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form action="/filtros" method="POST">
+    Edad: 
+    <input type="number" name="edad" value="{{edad}}">
+    <input type="submit" value="Filtrar">
+    {% csrf_token %}
+</form>
+<ul>
+    {% for c in abogados %}
+    <tr>
+            <td>{{c.rut}}</td>
+            <td>{{c.nombre}}</td>
+            <td>{{c.apellido}}</td>
+            <td>{{c.sexo}}</td>
+            <td>{{c.edad}}</td>
+            <td>{{c.especialidad}}</td>
+    </tr>
+    {% endfor %}
+</ul>

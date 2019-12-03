@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 # ============== PARA LOS MODELOS ==============
 from .models import Cliente
+from .models import Abogado
 from .forms import ClienteForm
 
 
@@ -50,7 +51,6 @@ def registro_cliente(request):
 def listar_clientes(request):
     clientes = Cliente.objects.all()
     return render(request, "app/listar.html", {'clientes': clientes})
-        
 
 # BORRAR CLIENTE
 def borrar_cliente(request, rut):
@@ -77,7 +77,12 @@ def listar_cliente_full(request):
 
 
 # ============== FILTRO ===============
-
+def filtros(request):
+    abogados = Abogado.objects.all()
+    if request.POST.get('especialidad'):
+        especialidad = request.POST.get('especialidad')
+        abogados = abogados.filter(especialidad__exact=especialidad)
+    return render(request, "app/filtros.html", {'abogados': abogados}) 
 
 # ======== TERMINO DE FILTRO ==========
 
