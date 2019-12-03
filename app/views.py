@@ -86,8 +86,7 @@ def filtros(request):
     
     if request.POST.get('sexo'):
         sexo = request.POST.get('sexo')
-        abogados 
-        = abogados.filter(sexo__exact=sexo)
+        abogados = abogados.filter(sexo__exact=sexo)
 
     return render(request, "app/filtros.html", {'abogados': abogados})
 # ======== TERMINO DE FILTRO ==========
