@@ -31,7 +31,17 @@ Lista de Abogados
 
             <form action="/filtros" method="POST">
                 Especialidad: 
-                <input type="text" name="especialidad" value="{{especialidad}}">
+                <select name="especialidad" value="{{especialidad}}">
+                    <option value="Todos">-Todos</option> 
+                    <option value="Bancarios">Bancarios</option> 
+                    <option value="Dicom">Dicom</option> 
+                    <option value="Educacional">Educacional</option>
+                </select>
+                <select name="sexo" value="{{sexo}}">
+                    <option value="Todos">Todos</option> 
+                    <option value="Masculino">Masculino</option> 
+                    <option value="Femenino">Femenino</option> 
+                </select>
                 <input type="submit" value="Filtrar">
                 {% csrf_token %}
             </form>

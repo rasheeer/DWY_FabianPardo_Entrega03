@@ -79,11 +79,17 @@ def listar_cliente_full(request):
 # ============== FILTRO ===============
 def filtros(request):
     abogados = Abogado.objects.all()
+
     if request.POST.get('especialidad'):
         especialidad = request.POST.get('especialidad')
         abogados = abogados.filter(especialidad__exact=especialidad)
-    return render(request, "app/filtros.html", {'abogados': abogados}) 
+    
+    if request.POST.get('sexo'):
+        sexo = request.POST.get('sexo')
+        abogados 
+        = abogados.filter(sexo__exact=sexo)
 
+    return render(request, "app/filtros.html", {'abogados': abogados})
 # ======== TERMINO DE FILTRO ==========
 
 
