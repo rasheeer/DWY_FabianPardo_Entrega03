@@ -132,6 +132,12 @@ body{
     width: 200px;
 }
 
+#filtros{
+    width: 15%;
+}
+
+
+
 @media (max-width: 1024px){
     #hr-abogados_1, #hr-abogados_2, #hr-abogados_3{
         width: 100%;
@@ -160,3 +166,4 @@ body{
         display:none;
     }
 }
+

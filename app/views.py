@@ -41,11 +41,10 @@ def registro_cliente(request):
         if form.is_valid():
             model_instance = form.save(commit=False)
             model_instance.save()
-            return redirect('/registrocliente')
+            return redirect('/listar')
     else:
         form = ClienteForm()
-        return render(request, 'app/registrocliente.html',
-                      {'form': form})
+        return render(request, 'app/registrocliente.html', {'form': form})
 
 # LISTAR CLIENTES
 def listar_clientes(request):
